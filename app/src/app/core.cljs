@@ -5,8 +5,12 @@
 
 (def app-state (r/atom {}))
 
+(defn app
+  []
+  [:p "hello"])
+
 (defn main
   []
-  (println "yo"))
+  (r/render-component [app] (. js/document (getElementById "app-container"))))
 
 (main)

@@ -53147,7 +53147,10 @@ goog.require("cljs.core");
 goog.require("reagent.core");
 cljs.core.enable_console_print_BANG_.call(null);
 app.core.app_state = reagent.core.atom.call(null, cljs.core.PersistentArrayMap.EMPTY);
+app.core.app = function app$core$app() {
+  return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "p", "p", 151049309), "hello"], null);
+};
 app.core.main = function app$core$main() {
-  return cljs.core.println.call(null, "yo");
+  return reagent.core.render_component.call(null, new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [app.core.app], null), document.getElementById("app-container"));
 };
 app.core.main.call(null);
