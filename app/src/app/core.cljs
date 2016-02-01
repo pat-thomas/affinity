@@ -1,5 +1,6 @@
 (ns app.core
-  (:require [reagent.core :as r]))
+  (:require [reagent.core :as r]
+            [app.xhr      :as xhr]))
 
 (enable-console-print!)
 
@@ -11,6 +12,11 @@
 
 (defn main
   []
+  (xhr/make-xhr {:method      "GET"
+                 :url         "ping"
+                 :data        {}
+                 :on-complete (fn [_]
+                                (println "got it"))})
   (r/render-component [app] (. js/document (getElementById "app-container"))))
 
 (main)
